@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/inv-fin-service/inv-fin-service.iml" filepath="$PROJECT_DIR$/inv-fin-service/inv-fin-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/inv-fin-service-app.iml" filepath="$PROJECT_DIR$/inv-fin-service-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/inv-fin-service-rest-client/inv-fin-service-rest-client.iml" filepath="$PROJECT_DIR$/inv-fin-service-rest-client/inv-fin-service-rest-client.iml" />
+    </modules>
+  </component>
+</project>
