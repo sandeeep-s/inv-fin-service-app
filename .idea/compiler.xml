@@ -8,12 +8,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="inv-fin-service" />
         <module name="inv-fin-service-rest-client" />
+        <module name="inv-fin-service-rest-test" />
+        <module name="inv-fin-service-rest-test-v000" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="inv-fin-service" target="1.8" />
       <module name="inv-fin-service-app" target="1.8" />
       <module name="inv-fin-service-rest-client" target="1.8" />
+      <module name="inv-fin-service-rest-test" target="1.8" />
+      <module name="inv-fin-service-rest-test-v000" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

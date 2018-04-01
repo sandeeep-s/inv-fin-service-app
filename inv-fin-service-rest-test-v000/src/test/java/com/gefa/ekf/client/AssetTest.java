@@ -1,19 +1,17 @@
 package com.gefa.ekf.client;
 
 
+import com.gefa.ekf.domain.TestAssetFactory;
 import com.gefa.invf.client.activities.Actions;
 import com.gefa.invf.client.activities.ClientCreateAssetActivity;
 import com.gefa.invf.client.activities.ClientReadAssetActivity;
 import com.gefa.invf.client.domain.Asset;
 import com.gefa.invf.client.exceptions.NotFoundException;
 import com.gefa.invf.client.exceptions.ServiceFailureException;
-import com.gefa.ekf.domain.TestAssetFactory;
-import org.jboss.resteasy.test.TestPortProvider;
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
-
 
 import java.net.URI;
 import java.net.URISyntaxException;

@@ -8,6 +8,7 @@
     <modules>
     <module>inv-fin-service</module>
 		<module>inv-fin-service-rest-client</module>
+		<module>inv-fin-service-rest-test-v000</module>
 	</modules>
     <name>Inv Fin Service App</name>
 	<url>http://maven.apache.org</url>

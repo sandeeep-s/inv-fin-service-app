@@ -1,13 +1,12 @@
-package com.gefa.ekf.boundary.inbound.rest.api;
+package com.gefa.ekf.boundary.inbound.rest.v0_0_0.api;
 
 import io.swagger.jaxrs.config.BeanConfig;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 
 /**

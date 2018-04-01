@@ -76,6 +76,14 @@ public class Server {
 			classes.add(ExceptionHandler.class);
 			classes.add(NoSuchAssetExceptionHandler.class);
 
+			classes.add(com.gefa.ekf.boundary.inbound.rest.v0_0_0.resources.AssetResourceImpl.class);
+			classes.add(com.gefa.ekf.boundary.inbound.rest.v0_0_0.error.handlers.ExceptionHandler.class);
+			classes.add(com.gefa.ekf.boundary.inbound.rest.v0_0_0.error.handlers.NoSuchAssetExceptionHandler.class);
+
+			classes.add(com.gefa.ekf.boundary.inbound.rest.v0_0_1.resources.AssetResourceImpl.class);
+			classes.add(com.gefa.ekf.boundary.inbound.rest.v0_0_1.error.handlers.ExceptionHandler.class);
+			classes.add(com.gefa.ekf.boundary.inbound.rest.v0_0_1.error.handlers.NoSuchAssetExceptionHandler.class);
+
 			return classes;
 		}
 	}
