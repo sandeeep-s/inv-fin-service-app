@@ -3,6 +3,7 @@ package com.gefa.ekf.boundary.outbound.rest.asset;
 import com.gefa.ekf.application.domain.IFAsset;
 import com.gefa.ekf.application.domain.events.AssetCreatedEvent;
 import com.gefa.ekf.client.domain.Asset;
+import io.reactivex.Observable;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -23,7 +24,7 @@ public class AssetRESTService {
 		return assetServiceAdapter.getAssets();
 	}
 
-	public Asset getAsset(Long assetId){
+	public Observable<Asset> getAsset(Long assetId){
 		return assetServiceAdapter.getAsset(assetId);
 	}
 

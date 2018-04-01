@@ -4,6 +4,8 @@ import com.gefa.ekf.application.domain.events.AssetCreatedEvent;
 import com.gefa.ekf.client.activities.ClientCreateAssetActivity;
 import com.gefa.ekf.client.activities.ClientReadAssetActivity;
 import com.gefa.ekf.client.domain.Asset;
+import io.reactivex.Observable;
+import io.reactivex.Single;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -38,7 +40,7 @@ public class AssetRESTServiceAdapter {
         return null;
     }
 
-    public Asset getAsset(Long assetId){
+    public Observable<Asset> getAsset(Long assetId){
         Asset asset = null;
         try {
             URI assetURI = new URI(getEntryPointURI()+"/"+assetId);
@@ -48,7 +50,7 @@ public class AssetRESTServiceAdapter {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-        return asset;
+        return Observable.just(asset);
     }
 
 	public void updateAsset(AssetCreatedEvent assetCreatedEvent) {

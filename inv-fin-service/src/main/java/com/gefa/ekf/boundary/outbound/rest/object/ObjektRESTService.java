@@ -2,6 +2,7 @@ package com.gefa.ekf.boundary.outbound.rest.object;
 
 
 import com.gefa.objekt.client.domain.Objekt;
+import io.reactivex.Observable;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -17,7 +18,7 @@ public class ObjektRESTService {
 		return objectServiceAdapter.getObjekts();
 	}
 
-	public Objekt getObjekt(Long objectId){
+	public Observable<Objekt> getObjekt(Long objectId){
 		return objectServiceAdapter.getObjekt(objectId);
 	}
 

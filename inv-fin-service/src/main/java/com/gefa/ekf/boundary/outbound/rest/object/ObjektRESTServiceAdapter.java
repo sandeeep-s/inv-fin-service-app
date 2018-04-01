@@ -3,6 +3,7 @@ package com.gefa.ekf.boundary.outbound.rest.object;
 
 import com.gefa.objekt.client.activities.ClientReadObjektActivity;
 import com.gefa.objekt.client.domain.Objekt;
+import io.reactivex.Observable;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.net.URI;
@@ -20,7 +21,7 @@ public class ObjektRESTServiceAdapter {
         return null;
     }
 
-    public Objekt getObjekt(Long objectId){
+    public Observable<Objekt> getObjekt(Long objectId){
         Objekt object = null;
         try {
             URI objectURI = new URI(getEntryPointURI()+"/"+objectId);
@@ -30,7 +31,7 @@ public class ObjektRESTServiceAdapter {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-        return object;
+        return Observable.just(object);
     }
 
 }

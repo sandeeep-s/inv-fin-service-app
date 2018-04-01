@@ -15,6 +15,7 @@ import com.gefa.ekf.boundary.outbound.rest.object.ObjektRESTService;
 import com.gefa.ekf.client.domain.Asset;
 import com.gefa.manufacturer.client.domain.Manufacturer;
 import com.gefa.objekt.client.domain.Objekt;
+import io.reactivex.Observable;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -71,15 +72,23 @@ public class AssetService {
         // TODO Update the assetFromRepo details onto IFAsset
     }
 
-    public IFAsset getAsset(Long assetId) {
+    public Observable<IFAsset> getAsset(Long assetId) {
 
-        Asset asset = assetRESTService.getAsset(assetId);
-        Long manufacturerId = asset.getManufacturerId();
-        Manufacturer manufacturer = manufacturerRESTService.getManufacturer(manufacturerId);
-        Objekt object = objektRESTService.getObjekt(asset.getObjectId());
+        return assetRESTService.getAsset(assetId)
+                .flatMap(
+                        (asset) -> {
+                            Long manufacturerId = asset.getManufacturerId();
+                            Observable<Manufacturer> manufacturer = manufacturerRESTService.getManufacturer(manufacturerId);
+                            Observable<Objekt> objekt = objektRESTService.getObjekt(asset.getObjectId());
+                            return Observable.zip(manufacturer, objekt, (m, o) -> combineAssetData(asset, m, o));
+                        }
+                );
 
 
-        return new IFAsset(asset.getId(), asset.getAssetName(), asset.getManufacturerId(), manufacturer.getManufacturerName(), asset.getObjectId(), object.getObjektName());
+    }
+
+    private IFAsset combineAssetData(Asset asset, Manufacturer manufacturer, Objekt objekt) {
+        return new IFAsset(asset.getId(), asset.getAssetName(), asset.getManufacturerId(), manufacturer.getManufacturerName(), asset.getObjectId(), objekt.getObjektName());
     }
 
     public IFAsset removeAsset(Long assetId) {

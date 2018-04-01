@@ -3,6 +3,7 @@ package com.gefa.ekf.boundary.outbound.rest.manufacturer;
 
 import com.gefa.manufacturer.client.activities.ClientReadManufacturerActivity;
 import com.gefa.manufacturer.client.domain.Manufacturer;
+import io.reactivex.Observable;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.net.URI;
@@ -20,7 +21,7 @@ public class ManufacturerRESTServiceAdapter {
         return null;
     }
 
-    public Manufacturer getManufacturer(Long manufacturerId){
+    public Observable<Manufacturer> getManufacturer(Long manufacturerId){
         Manufacturer manufacturer = null;
         try {
             URI manufacturerURI = new URI(getEntryPointURI()+"/"+manufacturerId);
@@ -30,7 +31,7 @@ public class ManufacturerRESTServiceAdapter {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-        return manufacturer;
+        return Observable.just(manufacturer);
     }
 
 }
