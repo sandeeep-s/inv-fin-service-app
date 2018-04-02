@@ -1,8 +1,5 @@
 package com.gefa.ekf.server;
 
-import com.gefa.ekf.boundary.inbound.rest.error.handlers.ExceptionHandler;
-import com.gefa.ekf.boundary.inbound.rest.error.handlers.NoSuchAssetExceptionHandler;
-import com.gefa.ekf.boundary.inbound.rest.resources.AssetResourceImpl;
 import io.undertow.server.handlers.resource.ClassPathResourceManager;
 import io.undertow.servlet.Servlets;
 import io.undertow.servlet.api.DeploymentInfo;
@@ -72,9 +69,6 @@ public class Server {
 		@Override
 		public Set<Class<?>> getClasses() {
 			HashSet<Class<?>> classes = new HashSet<Class<?>>();
-			classes.add(AssetResourceImpl.class);
-			classes.add(ExceptionHandler.class);
-			classes.add(NoSuchAssetExceptionHandler.class);
 
 			classes.add(com.gefa.ekf.boundary.inbound.rest.v0_0_0.resources.AssetResourceImpl.class);
 			classes.add(com.gefa.ekf.boundary.inbound.rest.v0_0_0.error.handlers.ExceptionHandler.class);
